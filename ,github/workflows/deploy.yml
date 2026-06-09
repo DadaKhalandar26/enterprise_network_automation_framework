@@ -1,0 +1,26 @@
+---
+name: Deploy
+
+on:
+  workflow_dispatch:        # manual trigger only — the safety gate
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production  # require approval (set reviewers in repo settings)
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Ansible
+        run: |
+          pip install ansible
+          ansible-galaxy collection install -r ansible/collections/requirements.yml
+
+      - name: Run playbook
+        env:
+          NETBOX_TOKEN: ${{ secrets.NETBOX_TOKEN }}
+        run: ansible-playbook ansible/playbooks/site.yml

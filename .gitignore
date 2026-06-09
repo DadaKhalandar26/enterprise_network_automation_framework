@@ -1,0 +1,45 @@
+# ---- Secrets (NEVER commit) ----
+.env
+*.env
+creds/
+*_creds.yml
+*.key
+*.pem
+*vault-password*
+ 
+# ---- Python ----
+venv/
+.venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+ 
+# ---- Ansible ----
+*.retry
+ansible/collections/ansible_collections/
+.ansible/
+ 
+# ---- Generated output ----
+configs/rendered/
+logs/*
+!logs/.gitkeep
+!logs/README.md
+reports/*
+!reports/.gitkeep
+!reports/README.md
+ 
+# ---- Editor / OS ----
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
