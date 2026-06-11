@@ -20,7 +20,6 @@ class DeviceConnectionHandler:
     def __init__(self, Netbox_url, Netbox_token, user_name, Password, enbable_password: str | None):
         """Initialize the handler with NetBox credentials and device login details."""
         log.info("Initializing DeviceConnectionHandler with NetBox and device credentials.")
-        Setting = Env_Setting()
         
         self.Netbox_url = Netbox_url
         self.Netbox_token = Netbox_token
